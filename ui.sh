@@ -206,15 +206,15 @@ install_v2-ui() {
         last_version=$1
         url="https://github.com/haoyaxuan/v2-ui/releases/download/${last_version}/v2-ui.tar.gz"
         echo -e "开始安装 v2-ui v$1"
-        wget -N --no-check-certificate -O /usr/local/v2-ui-linux.tar.gz ${url}
+        wget -N --no-check-certificate -O /usr/local/v2-ui.tar.gz ${url}
         if [[ $? -ne 0 ]]; then
             echo -e "${red}下载 v2-ui v$1 失败，请确保此版本存在${plain}"
             exit 1
         fi
     fi
 
-    tar zxvf v2-ui-linux.tar.gz
-    rm v2-ui-linux.tar.gz -f
+    tar zxvf v2-ui.tar.gz
+    rm v2-ui.tar.gz -f
     cd v2-ui
     chmod +x v2-ui bin/v2ray-v2-ui bin/v2ctl
     cp -f v2-ui.service /etc/systemd/system/
